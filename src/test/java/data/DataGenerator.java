@@ -5,20 +5,21 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import lombok.Value;
+import lombok.*;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.json.Json;
 
 import java.util.Locale;
 
 import static io.restassured.RestAssured.given;
 
+
 public class DataGenerator {
 
     private static final Faker faker = new Faker(new Locale("en"));
 
-    private DataGenerator() {
+    public DataGenerator() {
     }
-
     // Генерация полей (Логин и пароль)
     public static String getLogin() {
         return faker.name().username();
@@ -27,35 +28,37 @@ public class DataGenerator {
     public static String getPassword() {
         return faker.internet().password();
     }
-
-    @Value
+    // Класс с котором хранятся данные пользователя
     public static class RegistrationInfo {
         String login;
         String password;
         String status;
-    }
 
-    /*// Активный пользователь
-    public static RegistrationInfo getUserActive() {
-        RegistrationInfo info = new RegistrationInfo(getLogin(), getPassword(), "active");
-        sendingData(info);
-        return info;
-    }
-
-    // Заблокированный пользователь
-    public static RegistrationInfo getUserBlocked() {
-        RegistrationInfo info = new RegistrationInfo(getLogin(), getPassword(), "blocked");
-        sendingData(info);
-        return info;
-    }*/
-
-
-        public static RegistrationInfo getUserAllStatus(String status) {
-            RegistrationInfo info = new RegistrationInfo(getLogin(),getPassword(),status);
-            sendingData(info);
-            return info;
+        public String getLogin() {
+            return login;
         }
 
+        public String getPassword() {
+            return password;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public RegistrationInfo(String login, String password, String status) {
+            this.login = login;
+            this.password = password;
+            this.status = status;
+        }
+
+    }
+    // Метод для получения данных пользователя
+    public static RegistrationInfo getUserAllStatus(String status) {
+        RegistrationInfo info = new RegistrationInfo(getLogin(), getPassword(), status);
+        sendingData(info);
+        return info;
+    }
 
     // спецификация нужна для того, чтобы переиспользовать настройки в разных запросах
     private static final RequestSpecification requestSpec = new RequestSpecBuilder()

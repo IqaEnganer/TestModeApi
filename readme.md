@@ -1,2 +1,6 @@
 
-[![Build status](https://ci.appveyor.com/api/projects/status/s8iifh8n0x38uq68?svg=true)](https://ci.appveyor.com/project/IqaEnganer/pattern)
+[![Build status](https://ci.appveyor.com/api/projects/status/qpiti3n0qje6gvh6?svg=true)](https://ci.appveyor.com/project/IqaEnganer/testmodeapi)
+
+## Время затраченное на авто-тестирование при условии если ты четко знаешь как нужно сделать 10 мин(В моем случае я потратил в общем 4 часа)
+## Время затраченное на ручное тестирование ушло 5 мин, при условии если пользователи уже созданы и остается только вводить данные.
+## Я осознаю, что при иных масштабах выгоднее один раз написать авто-тесты и поддерживать их актуальность.
