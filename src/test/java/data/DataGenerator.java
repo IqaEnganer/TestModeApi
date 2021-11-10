@@ -5,9 +5,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import lombok.*;
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.json.Json;
 
 import java.util.Locale;
 
@@ -20,6 +18,7 @@ public class DataGenerator {
 
     public DataGenerator() {
     }
+
     // Генерация полей (Логин и пароль)
     public static String getLogin() {
         return faker.name().username();
@@ -28,6 +27,7 @@ public class DataGenerator {
     public static String getPassword() {
         return faker.internet().password();
     }
+
     // Класс с котором хранятся данные пользователя
     public static class RegistrationInfo {
         String login;
@@ -53,6 +53,7 @@ public class DataGenerator {
         }
 
     }
+
     // Метод для получения данных пользователя
     public static RegistrationInfo getUserAllStatus(String status) {
         RegistrationInfo info = new RegistrationInfo(getLogin(), getPassword(), status);

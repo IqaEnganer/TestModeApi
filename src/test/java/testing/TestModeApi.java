@@ -2,7 +2,6 @@ package testing;
 
 import com.codeborne.selenide.Configuration;
 import data.DataGenerator;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -44,6 +43,7 @@ public class TestModeApi {
         $("[data-test-id='error-notification']").shouldBe(visible, Duration.ofSeconds(11));
         $("[data-test-id='error-notification']").shouldHave(text("Пользователь заблокирован"));
     }
+
     // Оба поля заполнены неправильно
     @Test
     public void shouldNotifyAboutIncorrectDate() {
@@ -53,6 +53,7 @@ public class TestModeApi {
         $("[data-test-id='error-notification']").shouldBe(visible, Duration.ofSeconds(11));
         $("[data-test-id='error-notification']").shouldHave(text("Неверно указан логин или пароль"));
     }
+
     // Не валидный логин
     @Test
     public void shouldNotifyAboutIncorrectLogin() {
@@ -63,6 +64,7 @@ public class TestModeApi {
         $("[data-test-id='error-notification']").shouldBe(visible, Duration.ofSeconds(11));
         $("[data-test-id='error-notification']").shouldHave(text("Неверно указан логин или пароль"));
     }
+
     // Не валидный пароль
     @Test
     public void shouldNotifyAboutIncorrectPassword() {
