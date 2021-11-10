@@ -17,8 +17,9 @@ public class TestModeApi {
 
     @BeforeEach
     public void setUp() {
-        open("http://localhost:9999/");
         Configuration.headless = true;
+        open("http://localhost:9999/");
+
 
     }
 
